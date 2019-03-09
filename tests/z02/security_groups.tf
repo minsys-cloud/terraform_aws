@@ -19,11 +19,37 @@
     vpc_id = "${module.vpc.vpc_id}"
 }*/
 
-module "security-group_ssh" {
+/*module "security-group_ssh" {
   source  = "terraform-aws-modules/security-group/aws//modules/ssh"
   version = "2.15.0"
 
   # insert the 2 required variables here
     name = "web-security-group"
     vpc_id = "${module.vpc.vpc_id}"
+}*/
+
+#######
+# HTTP
+#######
+/*module "http_sg" {
+  source = "../../modules/http-80"
+
+  name        = "http-sg"
+  description = "Security group with HTTP ports open for everybody (IPv4 CIDR), egress ports are all world open"
+  vpc_id      = "${module.vpc.vpc_id}"
+
+  ingress_cidr_blocks = ["0.0.0.0/0"]
+}
+*/
+module "security-group_http-80" {
+  source  = "terraform-aws-modules/security-group/aws//modules/http-80"
+  version = "2.15.0"
+
+  name        = "http-sg"
+  description = "Security group with HTTP ports open for everybody (IPv4 CIDR), egress ports are all world open"
+  vpc_id      = "${module.vpc.vpc_id}"
+
+  ingress_cidr_blocks = ["0.0.0.0/0"]
+
+  # insert the 2 required variables here
 }
