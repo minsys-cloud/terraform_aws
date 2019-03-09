@@ -16,3 +16,10 @@ data "aws_security_group" "default" {
   name   = "default"
   vpc_id = "${data.aws_vpc.default.id}"
 }
+
+/*
+resource "aws_key_pair" "authorized_key" {
+  key_name   = "terraform-demo"
+  public_key = "${var.authorized_key}"
+}
+*/
