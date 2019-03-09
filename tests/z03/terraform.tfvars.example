@@ -1,0 +1,28 @@
+
+// !- ATTENTION -!
+// AWS Ceredentials must be provided in a separated secrets.tfvars file
+// Then 
+/*
+terraform apply \
+ -var-file="Path/to/secrets.tfvars"
+*/
+
+//AWS Region
+
+aws_region = "us-west-2"
+
+
+//AWS VPC Variables - module VPC
+
+aws_vpc_name = "simple-vpc"
+
+aws_vpc_cidr_block = "10.0.0.0/16"
+
+aws_vpc_azs = ["us-west-2a", "us-west-2b", "us-west-2c","us-west-2d"]
+aws_vpc_private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24","10.0.4.0/24"]
+aws_vpc_public_subnets = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24", "10.0.104.0/24"]
+aws_vpc_intra_subnets = ["10.0.61.0/24", "10.0.62.0/24", "10.0.63.0/24", "10.0.64.0/24"]
+
+
+aws_vpc_tag_tags_user = "lvi"
+aws_vpc_tag_tags_environment = "test"
