@@ -77,19 +77,29 @@ output "security_group_description" {
 # Output Module EC2
 ###############################
 
+output "availability_zone" {
+  description = "List of IDs of instances"
+  value       = "${module.ec2_bastion_web.availability_zone}"
+}
+
 output "instance_ids" {
   description = "List of IDs of instances"
-  value       = "${module.ec2.id}"
+  value       = "${module.ec2_bastion_web.id}"
 }
 
 output "public_dns" {
   description = "List of public DNS names assigned to the instances"
-  value       = "${module.ec2.public_dns}"
+  value       = "${module.ec2_bastion_web.public_dns}"
 }
 
-output "vpc_security_group_ids" {
+output "public_ip" {
   description = "List of VPC security group ids assigned to the instances"
-  value       = "${module.ec2.vpc_security_group_ids}"
+  value       = "${module.ec2_bastion_web.public_ip}"
+}
+
+output "private_ip" {
+  description = "List of VPC security group ids assigned to the instances"
+  value       = "${module.ec2_bastion_web.private_ip}"
 }
 
 /*output "tags" {

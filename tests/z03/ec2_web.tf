@@ -6,19 +6,19 @@
   instance = "${module.ec2.id[0]}"
 }*/
 
-module "ec2_bastion_web" {
+module "ec2_web" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "1.19.0"
 
   # insert the 4 required variables here
   ami = "${data.aws_ami.ubuntu_xenial.id}" 
-  instance_type = "m4.large"
-  name = "example-ec2-M4L"
+  instance_type = "t2.micro"
+  name = "example-ec2-T2M"
   vpc_security_group_ids = ["${module.sg_bastion_web.this_security_group_id}"]
 
-  instance_count = 2
+  instance_count = 4
 
-  subnet_ids =  ["${module.vpc.public_subnets}"]
+  subnet_ids =  ["${module.vpc.private_subnets}"]
   #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"
   #subnet_id = "${element(module.vpc.public_subnets,count.index)}"
   associate_public_ip_address = true
