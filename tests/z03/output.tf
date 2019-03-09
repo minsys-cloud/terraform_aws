@@ -74,10 +74,10 @@ output "security_group_description" {
 }
 
 ###############################
-# Output Module EC2
+# Output Module EC2 - ec2_bastions
 ###############################
 
-output "availability_zone" {
+output "availability_zone_ec2_bastion" {
   description = "List of IDs of instances"
   value       = "${module.ec2_bastion.availability_zone}"
 }
@@ -101,6 +101,39 @@ output "private_ip" {
   description = "List of VPC security group ids assigned to the instances"
   value       = "${module.ec2_bastion.private_ip}"
 }
+
+###############################
+# Output Module EC2 - ec2_web
+###############################
+
+output "availability_zone_ec2_web" {
+  description = "List of IDs of instances"
+  value       = "${module.ec2_web.availability_zone}"
+}
+
+output "instance_ids_ec2_web" {
+  description = "List of IDs of instances"
+  value       = "${module.ec2_web.id}"
+}
+
+output "public_dns_ec2_web" {
+  description = "List of public DNS names assigned to the instances"
+  value       = "${module.ec2_web.public_dns}"
+}
+
+output "public_ip_ec2_web" {
+  description = "List of VPC security group ids assigned to the instances"
+  value       = "${module.ec2_web.public_ip}"
+}
+
+output "private_ip_ec2_web" {
+  description = "List of VPC security group ids assigned to the instances"
+  value       = "${module.ec2_web.private_ip}"
+}
+
+
+
+
 
 /*output "tags" {
   description = "List of tags"
