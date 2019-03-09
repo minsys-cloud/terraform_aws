@@ -82,22 +82,22 @@ output "availability_zone_ec2_bastion" {
   value       = "${module.ec2_bastion.availability_zone}"
 }
 
-output "instance_ids" {
+output "instance_ids_ec2_bastion" {
   description = "List of IDs of instances"
   value       = "${module.ec2_bastion.id}"
 }
 
-output "public_dns" {
+output "public_dns_ec2_bastion" {
   description = "List of public DNS names assigned to the instances"
   value       = "${module.ec2_bastion.public_dns}"
 }
 
-output "public_ip" {
+output "public_ip_ec2_bastion" {
   description = "List of VPC security group ids assigned to the instances"
   value       = "${module.ec2_bastion.public_ip}"
 }
 
-output "private_ip" {
+output "private_ipe_c2_bastion" {
   description = "List of VPC security group ids assigned to the instances"
   value       = "${module.ec2_bastion.private_ip}"
 }
