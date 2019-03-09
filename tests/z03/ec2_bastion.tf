@@ -6,7 +6,7 @@
   instance = "${module.ec2.id[0]}"
 }*/
 
-module "ec2_bastion_web" {
+module "ec2_bastion" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "1.19.0"
 
