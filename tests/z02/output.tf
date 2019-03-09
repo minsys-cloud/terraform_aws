@@ -4,11 +4,6 @@ output "vpc_id" {
   value       = "${module.vpc.vpc_id}"
 }
 
-output "vpc_id_default" {
-  description = "A list of availability zones spefified as argument to this module"
-  value       = "${data.aws_vpc.default.id}"
-}
-
 # CIDR blocks
 output "vpc_cidr_block" {
   description = "The CIDR block of the VPC"
@@ -42,4 +37,3 @@ output "azs" {
   description = "A list of availability zones spefified as argument to this module"
   value       = ["${module.vpc.azs}"]
 }
-
