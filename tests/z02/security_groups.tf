@@ -1,4 +1,4 @@
-module "security-group" {
+/*module "security-group" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "2.15.0"
 
@@ -7,10 +7,11 @@ module "security-group" {
   name = "security-group"
   vpc_id = "${module.vpc.vpc_id}"
 
-}
+}*/
 
 module "web_security_group" {
   source = "terraform-aws-modules/security-group/aws//modules/web"
+  version = "2.15.0"
 
   # insert the 2 required variables here
 
