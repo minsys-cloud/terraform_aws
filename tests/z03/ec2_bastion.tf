@@ -1,15 +1,26 @@
 
 
 
+/*resource "aws_eip" "this" {
+  vpc      = true
+  instance = "${module.ec2.id[0]}"
+}*/
 
+module "ec2_bastion_web" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "1.19.0"
 
+  # insert the 4 required variables here
+  ami = "${data.aws_ami.ubuntu_xenial.id}" 
+  instance_type = "m4.large"
+  name = "example-ec2-M4L"
+  vpc_security_group_ids = ["${module.sg_bastion_web.this_security_group_id}"]
 
+  instance_count = 2
 
-
-
-
-
-
+  subnet_id                   = "${element(module.vpc.public_subnets.all.ids, 0)}"
+  associate_public_ip_address = true
+}
 
 
 #Make an encrypted AMI for use
