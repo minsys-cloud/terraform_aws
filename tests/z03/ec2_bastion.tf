@@ -18,8 +18,8 @@ module "ec2_bastion" {
 
   instance_count = 1
 
-  subnet_ids =  ["${module.vpc.public_subnets}"]
-  #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"
+  #subnet_ids =  ["${module.vpc.public_subnets}"]
+  subnet_id                   = "${element(module.vpc.public_subnets, 3)}"
   #subnet_id = "${element(module.vpc.public_subnets,count.index)}"
   associate_public_ip_address = true
 

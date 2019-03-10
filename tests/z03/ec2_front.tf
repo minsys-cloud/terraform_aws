@@ -16,9 +16,11 @@ module "ec2_front" {
   name = "front"
   vpc_security_group_ids = ["${module.sg_front.this_security_group_id}"]
 
-  instance_count = 1
+  instance_count = 3
 
-  subnet_ids =  ["${module.vpc.public_subnets}"]
+  subnet_ids =  ["${slice(module.vpc.public_subnets,0,3)}"]
+  #subnet_ids =  ["${module.vpc.public_subnets}"]
+  #subnet_id                   = "${slice(module.vpc.public_subnets,0,2)}"
   #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"
   #subnet_id = "${element(module.vpc.public_subnets,count.index)}"
   associate_public_ip_address = true
