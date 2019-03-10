@@ -6,17 +6,17 @@
   instance = "${module.ec2.id[0]}"
 }*/
 
-module "ec2_bastion" {
+module "ec2_front" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "1.19.0"
 
   # insert the 4 required variables here
   ami = "${data.aws_ami.ubuntu_xenial.id}" 
   instance_type = "t2.nano"
-  name = "bastion"
-  vpc_security_group_ids = ["${module.sg_bastion.this_security_group_id}"]
+  name = "front"
+  vpc_security_group_ids = ["${module.sg_front.this_security_group_id}"]
 
-  instance_count = 2
+  instance_count = 4
 
   subnet_ids =  ["${module.vpc.public_subnets}"]
   #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"

@@ -97,10 +97,12 @@ output "public_ip_ec2_bastion" {
   value       = "${module.ec2_bastion.public_ip}"
 }
 
-output "private_ipe_c2_bastion" {
+output "private_ip_ec2_bastion" {
   description = "List of VPC security group ids assigned to the instances"
   value       = "${module.ec2_bastion.private_ip}"
 }
+
+
 
 ###############################
 # Output Module EC2 - ec2_web
