@@ -16,7 +16,7 @@ module "ec2_bastion" {
   name = "bastion"
   vpc_security_group_ids = ["${module.sg_bastion.this_security_group_id}"]
 
-  instance_count = 2
+  instance_count = 1
 
   subnet_ids =  ["${module.vpc.public_subnets}"]
   #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"

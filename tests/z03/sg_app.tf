@@ -11,7 +11,17 @@ module "sg_app" {
   ingress_rules = ["http-80-tcp", "https-443-tcp", "ssh-tcp"] 
   ingress_cidr_blocks = ["${module.vpc.vpc_cidr_block}"]
   
-  #egress_rules = ["all-all"]
+  egress_rules = ["all-all"]
+
+  ingress_with_cidr_blocks = [
+    {
+      from_port   = -1
+      to_port     = -1
+      protocol    = "ICMP" 
+      cidr_blocks = "${module.vpc.vpc_cidr_block}" 
+      description = "PING"
+    }
+  ]
 }
 
 

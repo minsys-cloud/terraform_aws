@@ -11,7 +11,7 @@ module "sg_front" {
   ingress_rules = ["http-80-tcp", "https-443-tcp"] 
   ingress_cidr_blocks = ["0.0.0.0/0"]
 
-  #egress_rules = ["all-all"]
+  egress_rules = ["all-all"]
   
   ingress_with_cidr_blocks = [
    {
@@ -23,8 +23,8 @@ module "sg_front" {
       #instead of "0.0.0.0/0"  
     },
     {
-      from_port   = 0
-      to_port     = 8
+      from_port   = -1
+      to_port     = -1
       protocol    = "ICMP" 
       cidr_blocks = "${module.vpc.vpc_cidr_block}" 
       description = "PING"

@@ -16,7 +16,7 @@ module "ec2_front" {
   name = "front"
   vpc_security_group_ids = ["${module.sg_front.this_security_group_id}"]
 
-  instance_count = 3
+  instance_count = 1
 
   subnet_ids =  ["${module.vpc.public_subnets}"]
   #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"
@@ -24,7 +24,7 @@ module "ec2_front" {
   associate_public_ip_address = true
 
   key_name = "${aws_key_pair.authorized_key.key_name}"
-  
+
 }
 
 #"${element(data.aws_subnet_ids.all.ids, 0)}"

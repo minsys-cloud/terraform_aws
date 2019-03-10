@@ -16,7 +16,7 @@ module "ec2_app" {
   name = "app"
   vpc_security_group_ids = ["${module.sg_app.this_security_group_id}"]
 
-  instance_count = 3
+  instance_count = 1
 
   subnet_ids =  ["${module.vpc.private_subnets}"]
   #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"
