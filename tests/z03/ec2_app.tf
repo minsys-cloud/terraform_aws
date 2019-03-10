@@ -12,7 +12,7 @@ module "ec2_app" {
 
   # insert the 4 required variables here
   ami = "${data.aws_ami.ubuntu_xenial.id}" 
-  instance_type = "t2.nano"
+  instance_type = "t3.micro"
   name = "app"
   vpc_security_group_ids = ["${module.sg_app.this_security_group_id}"]
 
@@ -21,7 +21,10 @@ module "ec2_app" {
   subnet_ids =  ["${module.vpc.private_subnets}"]
   #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"
   #subnet_id = "${element(module.vpc.public_subnets,count.index)}"
-  associate_public_ip_address = true
+  #associate_public_ip_address = true
+
+  key_name = "${aws_key_pair.authorized_key.key_name}"
+
 }
 
 #"${element(data.aws_subnet_ids.all.ids, 0)}"

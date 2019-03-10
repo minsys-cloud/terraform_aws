@@ -6,9 +6,8 @@ provider "aws" {
 }
 
 
-/*
+
 resource "aws_key_pair" "authorized_key" {
-  key_name   = "terraform-demo"
-  public_key = "${var.authorized_key}"
+  key_name   = "lvi_rsa"
+  public_key = "${var.authorized_key_lvi}"
 }
-*/

@@ -2,6 +2,7 @@
 
 module "sg_bastion" {
   source = "terraform-aws-modules/security-group/aws"
+  version = "2.15.0"
 
   name        = "sg_bastion"
   description = "Security group for bastion with tcp:22 ports publicly open"

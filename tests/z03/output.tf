@@ -42,6 +42,13 @@ output "azs" {
   value       = ["${module.vpc.azs}"]
 }
 
+
+
+
+
+
+
+/*
 ###############################
 # Output Module Security Groups 
 ###############################
@@ -133,7 +140,7 @@ output "private_ip_ec2_web" {
   value       = "${module.ec2_web.private_ip}"
 }
 
-
+*/
 
 
 

@@ -12,16 +12,19 @@ module "ec2_front" {
 
   # insert the 4 required variables here
   ami = "${data.aws_ami.ubuntu_xenial.id}" 
-  instance_type = "t2.nano"
+  instance_type = "t3.micro"
   name = "front"
   vpc_security_group_ids = ["${module.sg_front.this_security_group_id}"]
 
-  instance_count = 4
+  instance_count = 3
 
   subnet_ids =  ["${module.vpc.public_subnets}"]
   #subnet_id                   = "${element(module.vpc.public_subnets, 0)}"
   #subnet_id = "${element(module.vpc.public_subnets,count.index)}"
   associate_public_ip_address = true
+
+  key_name = "${aws_key_pair.authorized_key.key_name}"
+  
 }
 
 #"${element(data.aws_subnet_ids.all.ids, 0)}"

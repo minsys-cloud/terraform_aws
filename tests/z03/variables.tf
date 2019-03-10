@@ -1,4 +1,5 @@
 
+
 // AWS Credentials
 
 variable "aws_access_key" {
@@ -7,6 +8,14 @@ variable "aws_access_key" {
 
 variable "aws_secret_key" {
   description = "AWS Secret Key"
+
+}
+
+// AWS SSH Keys
+
+variable "authorized_key_lvi" {
+  type = "string"
+  description = "AWS Public SSH Key user lvi"
 }
 
 //AWS Region

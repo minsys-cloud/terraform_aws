@@ -2,25 +2,44 @@
 
 module "sg_front" {
   source = "terraform-aws-modules/security-group/aws"
+  version = "2.15.0"
 
   name        = "sg_front"
   description = "Security group for the Frontend RProxy with tcp:80:443 ports publicly open, ssh internally"
   vpc_id      = "${module.vpc.vpc_id}"
 
-  ingress_cidr_blocks = ["0.0.0.0/0"]
   ingress_rules = ["http-80-tcp", "https-443-tcp"] 
+  ingress_cidr_blocks = ["0.0.0.0/0"]
+
   #egress_rules = ["all-all"]
-   ingress_with_cidr_blocks = [
+  
+  ingress_with_cidr_blocks = [
+   {
+      rule        = "http-8080-tcp"
+      cidr_blocks = "${module.vpc.vpc_cidr_block}"
+      description = "HTTP_8080"
+      #CIDR Block different from ingress_cidr_blocks
+      #cidr_blocks = ""10.0.0.0/16"
+      #instead of "0.0.0.0/0"  
+    },
+    {
+      from_port   = 0
+      to_port     = 8
+      protocol    = "ICMP" 
+      cidr_blocks = "${module.vpc.vpc_cidr_block}" 
+      description = "PING"
+    }, 
     {
       rule        = "ssh-tcp"
+      cidr_blocks = "${module.vpc.vpc_cidr_block}"
+      description = "SSH"
       #CIDR Block different from ingress_cidr_blocks
-      cidr_blocks = ["${module.vpc.vpc_cidr_block}"] 
-    },
+      #cidr_blocks = ""10.0.0.0/16"
+      #instead of "0.0.0.0/0"  
+    }
   ]
   
 }
-
-
 
 /*
 module "vote_service_sg" {
