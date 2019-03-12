@@ -27,6 +27,7 @@ variable "aws_amazonlinux_default_user" {
   type = "string"
   description = "AWS Default SSH Key for GNU/Linux Amazon Linux OS - used by Ansible "
 }
+
 //AWS Region
 
 variable "aws_region" {
