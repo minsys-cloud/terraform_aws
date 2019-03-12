@@ -1,0 +1,27 @@
+
+[all:vars]
+
+ansible_user="ubuntu"
+
+
+[all]
+ec2-34-221-205-36.us-west-2.compute.amazonaws.com
+i-031037ffb6e846b92 ansible_host=ec2-52-32-112-243.us-west-2.compute.amazonaws.com
+i-0dc5176b2174c4523 ansible_host=ec2-18-236-253-127.us-west-2.compute.amazonaws.com
+i-0b421ffd58dc3138f ansible_host=ec2-54-212-158-15.us-west-2.compute.amazonaws.com
+
+[bastion]
+ec2-34-221-205-36.us-west-2.compute.amazonaws.com
+
+[front]
+ec2-52-32-112-243.us-west-2.compute.amazonaws.com
+ec2-18-236-253-127.us-west-2.compute.amazonaws.com
+ec2-54-212-158-15.us-west-2.compute.amazonaws.com
+
+[app]
+ip-10-0-1-16.us-west-2.compute.internal
+ip-10-0-2-178.us-west-2.compute.internal
+ip-10-0-1-36.us-west-2.compute.internal
+
+
+
