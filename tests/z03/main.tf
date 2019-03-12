@@ -18,7 +18,7 @@ resource "aws_key_pair" "authorized_key" {
 * Ansible default inventory file 
 */
 
-/*
+
 
 resource "null_resource" "inventories" {
   provisioner "local-exec" {
@@ -29,7 +29,8 @@ resource "null_resource" "inventories" {
       template = "${data.template_file.inventory.rendered}"
   }
 }
-*/
+
+
 /*
 * SSH Config default file
 */

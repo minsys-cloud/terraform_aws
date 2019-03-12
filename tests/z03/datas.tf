@@ -20,7 +20,30 @@ data "aws_ami" "ubuntu_xenial" {
 # Data sources to generate SSH config file & Ansible inventory
 #############################################################
 
-    
+data "template_file" "inventory" {
+    template = "${file("${path.module}/templates/inventory.tpl")}"
+
+    vars {
+        
+        aws_ubuntu_default_user = "${var.aws_ubuntu_default_user}"
+        bastion_ip_list = "${join("\n",module.ec2_bastion.public_dns)}"
+        front_ip_list = "${join("\n",module.ec2_front.public_dns)}"
+        app_ip_list = "${join("\n",module.ec2_app.private_dns)}"
+
+        connection_strings_front = "${join("\n",formatlist("%s ansible_host=%s",module.ec2_front.id, module.ec2_front.public_dns))}"
+        
+/*
+        bastion_ip_list = "${join("\n",module.ec2_bastion.*.public_dns)}"
+        front_ip_list = "${join("\n",module.ec2_front.*.public_dns)}"
+        app_ip_list = "${join("\n",module.ec2_app.*.private_dns)}"
+
+        connection_strings_front = "${join("\n",formatlist("%s ansible_host=%s",module.ec2_front.*.id, module.ec2_front.*.public_dns))}"
+*/
+
+    }
+}
+
+   
 /*
 * Ansible default inventory file
 */

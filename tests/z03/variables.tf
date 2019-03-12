@@ -11,13 +11,22 @@ variable "aws_secret_key" {
 
 }
 
-// AWS SSH Keys
+// AWS SSH Config
 
 variable "authorized_key_lvi" {
   type = "string"
   description = "AWS Public SSH Key user lvi"
 }
 
+variable "aws_ubuntu_default_user" {
+  type = "string"
+  description = "AWS Default SSH Key for GNU/Linux Ubuntu OS - used by Ansible "
+}
+
+variable "aws_amazonlinux_default_user" {
+  type = "string"
+  description = "AWS Default SSH Key for GNU/Linux Amazon Linux OS - used by Ansible "
+}
 //AWS Region
 
 variable "aws_region" {
