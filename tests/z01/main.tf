@@ -1,3 +1,4 @@
+
 # Configure the AWS Provider
 provider "aws" {
   access_key = "${var.aws_access_key}"
@@ -10,3 +11,4 @@ resource "aws_key_pair" "authorized_key" {
   key_name   = "lvi_rsa"
   public_key = "${var.authorized_key_lvi}"
 }
+

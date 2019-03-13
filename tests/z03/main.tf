@@ -5,8 +5,8 @@ provider "aws" {
   region  = "${var.aws_region}"
 }
 
-
 resource "aws_key_pair" "authorized_key" {
   key_name   = "lvi_rsa"
   public_key = "${var.authorized_key_lvi}"
 }
+
