@@ -5,24 +5,24 @@ ansible_user="ubuntu"
 
 
 [all]
-ec2-34-209-51-135.us-west-2.compute.amazonaws.com
-i-04cc96ebe4fe4ad4d ansible_host=ec2-34-219-135-142.us-west-2.compute.amazonaws.com
-i-0efdc949ff5dca5cc ansible_host=ec2-34-222-240-104.us-west-2.compute.amazonaws.com
-i-05f87cfe76180af9a ansible_host=ec2-54-189-125-86.us-west-2.compute.amazonaws.com
+ec2-34-219-57-104.us-west-2.compute.amazonaws.com
+i-08a691cee1da69045 ansible_host=ec2-34-209-169-114.us-west-2.compute.amazonaws.com
+i-0b9e29167f37afb75 ansible_host=ec2-34-218-78-121.us-west-2.compute.amazonaws.com
+i-04a755c393a030593 ansible_host=ec2-34-222-167-177.us-west-2.compute.amazonaws.com
 
 [bastion]
-ec2-34-209-51-135.us-west-2.compute.amazonaws.com
+ec2-34-219-57-104.us-west-2.compute.amazonaws.com
 
 [front]
-ec2-34-219-135-142.us-west-2.compute.amazonaws.com
-ec2-34-222-240-104.us-west-2.compute.amazonaws.com
-ec2-54-189-125-86.us-west-2.compute.amazonaws.com
+ec2-34-209-169-114.us-west-2.compute.amazonaws.com
+ec2-34-218-78-121.us-west-2.compute.amazonaws.com
+ec2-34-222-167-177.us-west-2.compute.amazonaws.com
 
 
 [app]
-ip-10-0-1-145.us-west-2.compute.internal
-ip-10-0-2-232.us-west-2.compute.internal
-ip-10-0-1-108.us-west-2.compute.internal
+ip-10-0-1-102.us-west-2.compute.internal
+ip-10-0-2-82.us-west-2.compute.internal
+ip-10-0-1-177.us-west-2.compute.internal
 
 
 
